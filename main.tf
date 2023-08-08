@@ -36,7 +36,7 @@ module "rabbitmq" {
   allow_ssh_cidr = var.allow_ssh_cidr
   zone_id = var.zone_id
 }
-module "rds"{
+module "rds" {
   source = "git::https://github.com/Ramthatigutla/tf-module-rds.git"
   for_each       = var.rds
   component      = each.value["component"]
