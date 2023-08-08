@@ -37,7 +37,7 @@ module "rabbitmq" {
   zone_id = var.zone_id
 }
 module "rds"{
-  source = "git::https://github.com/Ramthatigutla/tf-module-rabitmq.git"
+  source = "git::https://github.com/Ramthatigutla/tf-module-rds.git"
   for_each       = var.rds
   component      = each.value["component"]
   engine         = each.value["engine"]
