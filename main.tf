@@ -22,7 +22,7 @@ module "app_server"{
 }
 
 module "rabbitmq" {
-  source = "git::https://github.com/Ramthatigutla/tf-module-rabbitmq.git"
+  source = "git::https://github.com/Ramthatigutla/tf-module-rabitmq.git"
 
   for_each      = var.rabbitmq
   component     = each.value["component"]
