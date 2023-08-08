@@ -9,6 +9,7 @@ module "vpc" {
   tags= var.tags
   default_vpc_id= var.default_vpc_id
   default-vpc-rt= var.default-vpc-rt
+
 }
 
 module "app_server"{
@@ -35,7 +36,7 @@ module "rabbitmq" {
   tags           = var.tags
   allow_ssh_cidr = var.allow_ssh_cidr
   zone_id        = var.zone_id
-  kms_key_arn     = var.kms_key_arn
+  kms_key_id     = var.kms_key_id
 
 }
 module "rds" {
@@ -49,5 +50,5 @@ module "rds" {
 
   tags = var.tags
   env = var.env
-  kms_key_arn = var.kms_key_arn
+  kms_key_id = var.kms_key_id
 }
