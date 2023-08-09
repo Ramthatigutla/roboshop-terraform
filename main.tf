@@ -12,7 +12,7 @@ module "vpc" {
 
 }
 
-module "app_server"{
+module "app_server" {
   source   = "git::https://github.com/Ramthatigutla/tf-module-app.git"
   env = var.env
   tags= var.tags
@@ -38,18 +38,18 @@ module "rabbitmq" {
   zone_id        = var.zone_id
   kms_key_id     = var.kms_key_id
 }
-#module "rds" {
-#  source = "git::https://github.com/Ramthatigutla/tf-module-rds.git"
-#  for_each       = var.rds
-#  component      = each.value["component"]
-#  engine         = each.value["engine"]
-#  engine_version = each.value["engine_version"]
-#  db_name        = each.value["db_name"]
-#  subnet_ids     = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "db", null), "subnet_ids", null)
-#
-#  tags = var.tags
-#  env = var.env
-#
-#  kms_key_id = var.kms_key_id
-#
-#}
+
+module "rds" {
+  source = "git::https://github.com/Ramthatigutla/tf-module-rds.git"
+  for_each       = var.rds
+  component      = each.value["component"]
+  engine         = each.value["engine"]
+  engine_version = each.value["engine_version"]
+  db_name        = each.value["db_name"]
+  subnet_ids     = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "db", null), "subnet_ids", null)
+
+  tags = var.tags
+  env = var.env
+
+
+}
