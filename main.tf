@@ -10,6 +10,7 @@ module "vpc" {
   default_vpc_id = var.default_vpc_id
   default-vpc-rt = var.default-vpc-rt
 
+
 }
 
 module "app_server" {
