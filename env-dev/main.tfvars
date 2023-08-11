@@ -57,6 +57,7 @@ default_vpc_id = "vpc-013dc13513422cb08"
 default-vpc-rt = "rtb-05a5dd0fe1e8d63ba"
 allow_ssh_cidr = [ "172.31.1.199/32" ]
 zone_id = "Z01993782D642NRX02CFC"
+kms_key_id = "efa47460-43f4-4740-89f1-f34515224c3a"
 
 
 rabbitmq = {
